@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Forest/ForestStart.unity
+    guid: cdbd1014d77196145be0f2096944fe78
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Forest/ForestEmpty.unity
+    guid: e34360620b817d04dba1dcca27b7111c
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Forest/ForestExit.unity
+    guid: 47307b8564714cc419baa84b692ea56e
+  m_configObjects: {}
