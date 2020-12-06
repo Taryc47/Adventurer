@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Rooms/Forest/ForestStart/ForestStart.unity
     guid: cdbd1014d77196145be0f2096944fe78
   - enabled: 1
+    path: Assets/Scenes/Rooms/Forest/ForestBasic/ForestBasic.unity
+    guid: 472f2cfba3538324f839e6c0f436032c
+  - enabled: 1
     path: Assets/Scenes/Rooms/Forest/ForestEmpty/ForestEmpty.unity
     guid: e34360620b817d04dba1dcca27b7111c
   - enabled: 1

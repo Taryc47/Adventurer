@@ -70,6 +70,7 @@ public class RoomController : MonoBehaviour
                 {
                     room.CreateDoors();
                 }
+                UpdateRooms();
                 updatedRooms = true;
             }
             return;
@@ -163,9 +164,59 @@ public class RoomController : MonoBehaviour
         return loadedRooms.Find(item => item.X == x && item.Z == z);
     }
 
+    public string GetRandomRoomName()
+    {
+        string[] possibleRooms = new string[]
+        {
+            "Empty",
+            "Basic"
+        };
+
+        return possibleRooms[Random.Range(0, possibleRooms.Length)];
+    }
+
     public void OnPlayerEnterRoom(Room room)
     {
         CameraController.instance.currRoom = room;
         currRoom = room;
+
+        StartCoroutine(RoomCoroutine());
+    }
+
+    public IEnumerator RoomCoroutine()
+    {
+        yield return new WaitForSeconds(0.2f);
+        UpdateRooms();
+    }
+
+    private void UpdateRooms()
+    {
+        foreach (Room room in loadedRooms)
+        {
+            if (currRoom != room)
+            {
+                NewEnemyController[] enemies = room.GetComponentsInChildren<NewEnemyController>();
+                if (enemies != null)
+                {
+                    foreach (NewEnemyController enemy in enemies)
+                    {
+                        enemy.notInRoom = true;
+                        Debug.Log("Not in room.");
+                    }
+                }
+            }
+            else
+            {
+                NewEnemyController[] enemies = room.GetComponentsInChildren<NewEnemyController>();
+                if (enemies != null)
+                {
+                    foreach (NewEnemyController enemy in enemies)
+                    {
+                        enemy.notInRoom = false;
+                        Debug.Log("In room.");
+                    }
+                }
+            }
+        }
     }
 }

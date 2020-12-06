@@ -7,11 +7,11 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    public float health;
+    public static float health;
     public float moveSpeed;
     public float attackTime;
     public float attackRange;
-    public float damage;
+    public static float damage;
 
     public WeaponController sword;
     public NavMeshAgent enemy;

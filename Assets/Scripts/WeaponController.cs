@@ -4,43 +4,71 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    public PlayerController player;
-    public EnemyController enemy;
+    GameObject[] enemies;
 
     public bool colliding;
-    //public float playerDamage;
-
+    //public bool isEnemyProjectile = false;
+    
     void Start()
     {
-        
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     private void Update()
     {
-        //playerDamage = PlayerController.damage;
+       
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        foreach (var enemy in enemies)
+        {
+            if (other.gameObject.tag == "Player")
+            {
+                if (colliding == false)
+                {
+                    Colliding();
+                    PlayerController.health -= enemy.GetComponent<NewEnemyController>().damage;
+                    Debug.Log("Player Hit");
+
+                }
+            }
+
+            else if (other.gameObject.tag == "Enemy")
+            {
+                if (colliding == false)
+                {
+                    Colliding();
+                    enemy.GetComponent<NewEnemyController>().health -= PlayerController.damage;
+                    Debug.Log("Enemy Hit!");
+
+                }
+            }
+        }
+    }
+
+        /*if (other.gameObject.tag == "Player")
         {
             if (colliding == false)
             {
                 Colliding();
-                PlayerController.health -= enemy.damage;
+                PlayerController.health -= enemy.GetComponent<NewEnemyController>().damage;
                 Debug.Log("Player Hit");
+                
             }
         }
+
         else if (other.gameObject.tag == "Enemy")
         {
             if (colliding == false)
             {
                 Colliding();
-                other.gameObject.GetComponent<EnemyController>().health -= PlayerController.damage;
+                enemy.GetComponent<NewEnemyController>().health -= PlayerController.damage;
                 Debug.Log("Enemy Hit!");
+                
             }
         }
-    }
+    }*/
 
     bool Colliding()
     {

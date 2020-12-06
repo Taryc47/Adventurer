@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 6195832618692142938}
   - component: {fileID: 6195832618692142939}
   - component: {fileID: 6195832618692142936}
+  - component: {fileID: 77868296}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -192,6 +193,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &77868296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6195832618692142918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a654842b55260c949b20c7499521e4d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  colliding: 1
 --- !u!1 &6195832619974760907
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +331,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7709727320927893494}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 1, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4006315536892571545}
@@ -534,7 +549,6 @@ MonoBehaviour:
     m_SingletonActionBindings: []
   controller: {fileID: 7709727320927893452}
   sword: {fileID: 5123519296471505093}
-  player: {fileID: 1935968772}
   newSpeed: 0
   blocking: 0
 --- !u!114 &1935968772
@@ -549,10 +563,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d85c550eabb30d4fa4b4681017aa217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  speed: 0
-  health: 4
-  numOfHearts: 5
   CollectedText: {fileID: 0}
   hearts:
   - {fileID: 0}
